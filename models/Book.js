@@ -9,13 +9,19 @@ const bookSchema = new mongoose.Schema({
         type: String,
         required: [true, "An image must be provided"],
     },
-    genre: [{
-        type: String,
-    }],
     author: {
         type: mongoose.Types.ObjectId,
         ref: "Author",
     },
+    price: {
+        type: number,
+        require: [true, "A price must be assigned"],
+    },
+    // Stretch
+    // tags: [{
+    //     type: String,
+    // }],
+    
 });
 
 const Book = mongoose.model("Book", bookSchema);
