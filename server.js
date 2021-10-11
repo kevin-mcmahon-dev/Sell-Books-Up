@@ -20,9 +20,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 /* == use controllers == */
-app.use("/", controllers.book);
+app.use("/all-books", controllers.book);
+app.use("/", controllers.user);
 
-// app.use("/", controllers.book, controllers.user, controllers.review);
+
+// Routes
+app.get("/", async function (req, res) {
+    res.render("home");
+});
 
 app.get("/*", (req, res) => {
     const context = { error: req.error };

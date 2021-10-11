@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
+
 const Book = require("../models/book");
+const Review = require("../models/review");
+const User = require("../models/user");
 
 // router.get('/', async function (req, res) {
 //     try {
@@ -18,8 +21,6 @@ const Book = require("../models/book");
 //     }
 // });
 
-router.get("/", async function (req, res) {
-    res.render("home");
-})
+
 
 module.exports = router;
