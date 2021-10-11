@@ -10,13 +10,20 @@ const bookSchema = new mongoose.Schema({
         required: [true, "An image must be provided"],
     },
     author: {
-        type: mongoose.Types.ObjectId,
-        ref: "Author",
+        type: String,
+        required: [true, "Author must be provided"],
     },
     price: {
         type: number,
         require: [true, "A price must be assigned"],
     },
+    // Non-required key-value pairs
+    // genre: {
+
+    // },
+    // bestseller: {
+    //     type: boolean,
+    // }
     // Stretch
     // tags: [{
     //     type: String,
