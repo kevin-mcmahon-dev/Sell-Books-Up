@@ -14,7 +14,7 @@ const bookSchema = new mongoose.Schema({
         required: [true, "Author must be provided"],
     },
     price: {
-        type: number,
+        type: Number,
         require: [true, "A price must be assigned"],
     },
     // Non-required key-value pairs

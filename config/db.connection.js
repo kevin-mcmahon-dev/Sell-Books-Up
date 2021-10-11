@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const connectionStr = "mongodb://localhost:27017/Project_One";
-mongoose.connect(connectionStr)
+mongoose.connect(connectionStr);
 
 mongoose.connection.on('connected', () => {
   console.log(`[${new Date().toLocaleTimeString()}] - MongoDB connected ... 🙌 🙌 🙌`); 

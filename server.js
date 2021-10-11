@@ -20,7 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 /* == use controllers == */
-app.use("/", controllers);
+app.use("/", controllers.book);
+
 // app.use("/", controllers.book, controllers.user, controllers.review);
 
 app.get("/*", (req, res) => {
