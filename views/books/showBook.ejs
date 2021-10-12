@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+    <%- include('../partials/head.ejs')%>
 <body>
+    <%- include('../partials/nav.ejs') %>
     <h1>Show Book Page</h1>
     <p>
         <img src="<%= book.image %>" alt="Book Image">
@@ -104,6 +106,7 @@
             <% } %>
         </section>
     </article>
+    <%- include('../partials/footer.ejs') %>
 </body>
 </html>
 
