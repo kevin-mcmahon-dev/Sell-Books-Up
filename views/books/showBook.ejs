@@ -48,24 +48,71 @@
             Reviews:
         </h2>
         
-        
+          <!-- add before your reviews column -->
+        <section class="column is-one-quarter">
+            <div class="box is-flex-direction-column">
+                <form action="/all-books/:id" method="POST">
+                    <div class="field">
+                    <label class="label">Rating</label>
+                        <div class="control">
+                        <input
+                            class="input"
+                            type="number"
+                            name="rating"
+                            min="0"
+                            max="5"
+                            placeholder="0-5"
+                        />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">User</label>
+                            <div class="control">
+                            <input
+                                class="input"
+                                type="text"
+                                name="user"
+                                placeholder="User _id"
+                            />
+                            </div>
+                        </div>
+                    <div class="field">
+                    <label class="label">Content</label>
+                        <div class="control">
+                        <textarea
+                            name="content"
+                            class="textarea"
+                            placeholder="Leave a review!"
+                        ></textarea>
+                        </div>
+                    </div>
+              <!-- Here is our hidden input to provide the product id -->
+                    <input type="hidden" name="book" value="<%= book._id %>" />
+                    <div class="control">
+                        <button class="button is-link is-fullwidth">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
         
         <section>
             <% for (let i = 0; i < reviews.length; i++) { %>
-            
                 <div>
-                    <h4>
-                        
-                    </h4>
                     <h4>
                         <%= test[i][0].user.username %>
                     </h4>
                     <p>
                         <%= reviews[i].content %>
                     </p>
-                    <p>
-                        rating: <%= reviews[i].rating %>
-                    </p>
+                    <% for( let idx = 0; idx < 5; idx++ ) { %>
+                    
+                        <span class="icon">
+                            <% if (idx < reviews[i].rating) { %>
+                            <i class="fas fa-star"></i>
+                            <% } %>
+                        </span>
+
+                    <% } %>
                 </div>
             <% } %>
         </section>

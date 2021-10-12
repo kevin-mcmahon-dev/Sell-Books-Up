@@ -110,11 +110,21 @@ router.get("/", async function (req, res) {
     }
 });
 
+
+
+
 router.get("/new-book", (req, res) => {
     res.render("newBook");
 });
 
-
+router.post("/", async (req, res) => {
+    try {
+        await Book.create(req.body);
+        return res.redirect("/all-books");
+    } catch (error) {
+        return console.log(error);
+    }
+});
 
 router.get("/:id", async function (req, res, next) {
     try {
@@ -138,6 +148,17 @@ router.get("/:id", async function (req, res, next) {
 
         return res.render("books/showBook", context);
 
+    } catch (error) {
+        return console.log(error);
+    }
+});
+
+//Create new review
+router.post("/:id", async function (req, res) {
+    try {
+        await Review.create(req.body);
+
+        return res.redirect('back');
     } catch (error) {
         return console.log(error);
     }
