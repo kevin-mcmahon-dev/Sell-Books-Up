@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: [true, "A password must be entered."],
     },
+    name: {
+        type: String,
+        require: [true, "Name must be entered"],
+    }
     // Stretch
 
     // email: {
