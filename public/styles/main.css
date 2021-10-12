@@ -1,0 +1,45 @@
+
+
+/*----------------- this is the user show page css-------------- */
+
+.userNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid black;
+}
+
+
+.newBookBtn {
+    padding: 5px;
+}
+
+
+.cart-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.checkoutBtn {
+    margin-left: 20px;
+}
+
+
+
+
+.user-booklist {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user-book {
+    border: 2px solid black;
+    padding: 5px;
+}
+
+/*-------------------------end of user show page css---------------------*/
+
