@@ -29,9 +29,11 @@ app.get("/", async function (req, res) {
     res.render("home");
 });
 
+
 app.get("/*", (req, res) => {
     const context = { error: req.error };
     return res.status(404).render("404", context);
 });
 
 app.listen(PORT, () => console.log(`Listening for client requests on port ${PORT}`));
+

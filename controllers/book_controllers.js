@@ -5,22 +5,25 @@ const Book = require("../models/book");
 const Review = require("../models/review");
 const User = require("../models/user");
 
-// router.get('/', async function (req, res) {
-//     try {
+router.get('/', async function (req, res) {
+    try {
     
-//     const books = await Book.find({})
+    const books = await Book.find({})
 
-//     const context = {
-//         books,
-//     }
+    const context = {
+        books,
+    }
 
-//     res.render('products/index', context);
+    res.render('books/allBooks', context);
 
-//     } catch (error) {
-//         return console.log(error);
-//     }
-// });
+    } catch (error) {
+        return console.log(error);
+    }
+});
 
-
+// Route to NEW BOOK
+router.get("/new-book", async function (req, res) {
+    res.render("newBook");
+});
 
 module.exports = router;
