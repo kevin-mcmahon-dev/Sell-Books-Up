@@ -5,6 +5,7 @@ const Book = require("../models/book");
 const Review = require("../models/review");
 const User = require("../models/user");
 
+
 router.get('/', async function (req, res) {
     try {
     
@@ -26,4 +27,10 @@ router.get("/new-book", async function (req, res) {
     res.render("newBook");
 });
 
+// 
+router.get("/new-user", async function (req, res) {
+    res.render("newUser");
+});
+
 module.exports = router;
+
