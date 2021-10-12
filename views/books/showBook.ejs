@@ -40,26 +40,27 @@
         <h2>
             Reviews:
         </h2>
-        <h4>
-            
-        </h4>
+        
+        
+        
         <section>
-            <% reviews.forEach(review => { %>
+            <% for (let i = 0; i < reviews.length; i++) { %>
+            
                 <div>
                     <h4>
-                        <!--  user.username  -->
+                        
                     </h4>
                     <h4>
-                        <%= review.user %>
+                        <%= test[i][0].user.username %>
                     </h4>
                     <p>
-                        <%= review.content %>
+                        <%= reviews[i].content %>
                     </p>
                     <p>
-                        rating: <%= review.rating %>
+                        rating: <%= reviews[i].rating %>
                     </p>
                 </div>
-            <% }) %>
+            <% } %>
         </section>
     </article>
 </body>

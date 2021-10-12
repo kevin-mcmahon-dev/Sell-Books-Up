@@ -115,24 +115,47 @@ router.get("/:id", async function (req, res, next) {
         
         const book = await Book.findById(req.params.id);
         const reviews = await Review.find({book: req.params.id}).populate("book");
-        const user = await Review.find({user: "_id"}).populate("user");
-        console.log(reviews);
-
-        // const user_log = [];
-        // const user = [];
-
-        // for (let i = 0; i <= reviews.length - 1; i++) {
-        //     user_log[i] = reviews[i].user;
-        //     user[i] = User.find({_id: user_log[i]}) 
-        // }
+        // const user_log = await User.find({_id: reviews.user});
         // console.log(user_log);
+        // const user = await Review.find({user: user_log}).populate("user");
+        // const users = await Review.find({user: })
+        // console.log(reviews);
+
+        /*
+        { 
+            _id: new ObjectId("6165ba493c787a393f89c088"), 
+            rating: 1, 
+            content: 'A miserable read', 
+            user: { 
+                _id: new ObjectId("6165174ca27b340c38528c7d"), 
+                username: 'kmcmahon', 
+                password: '12345', 
+                name: 'Kevin' 
+            }, 
+            book: new ObjectId("616512adbfb6b5aa98753aec"), 
+            __v: 0, 
+            createdAt: 2021-10-12T16:39:37.805Z, 
+            updatedAt: 2021-10-12T16:39:37.805Z 
+        }
+        */
+// <% reviews.forEach(review => { %>
+        const user_log = [];
+        const test = [];
+
+        for (let i = 0; i <= reviews.length - 1; i++) {
+            user_log[i] = reviews[i].user;
+            test[i] = await Review.find({user: user_log[i]}).populate("user"); 
+        }
+
+        // user = await Review.find({user: user_log}).populate("user");
+        console.log(test[0]);
         // const user = await User.find({_id: reviews.user});
 
 
         const context = {
             book,
             reviews,
-            // user,
+            test,
         };
 
         return res.render("books/showBook", context);
