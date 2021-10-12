@@ -1,1 +1,30 @@
-<h1>Login</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs')%>
+
+
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <h1>Login</h1>
+    <button><a href='/new-user'>Create Account</a></button>
+
+    <div class='usernameGrid'>
+    <% for(let i = 0; i < user.length; i++) { %>
+
+        <a href='/login/<%= user[i].id %>'>
+        <p class='usernameTile'>@<%= user[i].username %></p>
+        </a>
+
+        <% } %>
+
+    </div>
+
+
+
+        <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

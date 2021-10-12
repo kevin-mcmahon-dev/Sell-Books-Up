@@ -5,7 +5,6 @@ const Book = require("../models/book");
 const Review = require("../models/review");
 const User = require("../models/user");
 
-
 // Book.deleteMany({}, function (error, deletedBooks) {
     // if (error) {
     //     return console.log(error);
@@ -76,21 +75,8 @@ Review.deleteMany({}, function (error, deletedReviews) {
     );
 });
 
-// router.get('/', async function (req, res) {
-//     try {
-    
-//     const books = await Book.find({})
 
-//     const context = {
-//         books,
-//     }
 
-//     res.render('products/index', context);
-
-//     } catch (error) {
-//         return console.log(error);
-//     }
-// });
 
 router.get("/", async function (req, res) {
     try {
@@ -109,9 +95,6 @@ router.get("/", async function (req, res) {
 
     }
 });
-
-
-
 
 router.get("/new-book", (req, res) => {
     res.render("newBook");
@@ -200,6 +183,5 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-
-
 module.exports = router;
+
