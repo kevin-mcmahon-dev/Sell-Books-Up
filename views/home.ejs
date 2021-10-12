@@ -1,35 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="/scripts/main.js" defer></script>
-
-    <title>Home Page</title>
-</head>
+    <%- include('./partials/head.ejs')%>
 <body>
-    <header>
-        <nav>
-            <a>Book Store Logo</a>
-            <ul>
-                <!-- CB: ADD STRING FOR LINK PATH -->
-                <li><a href="/all-books">All Books</a></li>
-                <li><a href="">New User</a></li>
-                <li><a href="">Log In</a></li>
-            </ul>
-        </nav>
-    </header>
+        <%- include('./partials/nav.ejs') %>
 
         <main>
-            <!-- <h1>Hello Project One</h1> -->
+            
             <h2>---Image of bookstore full width---</h2>
+
             <!-- New Arrivals Div -->
             <div>
                 <section>
@@ -76,21 +54,7 @@
               </div>
 
               <!-- Footer -->
-              <footer>
-                <nav>
-                    <p>P: (555)-555-5555</p>
-                    <p>555 JavaScript Ave</p>
-                    <ul>
-                        <li><a href="">Social Icon 1</a></li>
-                        <li><a href="">Social Icon 2</a></li>
-                        <li><a href="">Social Icon 3</a></li>   
-                        <!-- CB: ADD STRING FOR LINK PATH -->                  
-                        <li><a href="">Books</a></li>
-                        <li><a href="">New User</a></li>
-                        <li><a href="">Log In</a></li>                    
-                    </ul>
-                </nav>
-              </footer>
+              <%- include('./partials/footer.ejs') %>
 
         </main>
 </body>
