@@ -27,7 +27,7 @@ router.get("/new-book", async function (req, res) {
     res.render("newBook");
 });
 
-// 
+// Route to NEW USER
 router.get("/new-user", async function (req, res) {
     res.render("newUser");
 });
