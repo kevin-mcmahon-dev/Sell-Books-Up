@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="/styles/main.css" />
 
@@ -15,6 +16,7 @@
     <title>Show Book</title>
 </head>
 <body>
+    <h1>Show Book Page</h1>
     <p>
         <img src="<%= book.image %>" alt="Book Image">
     </p>
@@ -29,12 +31,17 @@
             Price: <%= book.price %>
         </p>
 
-        <div>
-            <a href="/all-books/<%= book.id %>/edit">Edit Product</a>
+        <div class = "field is-grouped mt-5">
+        <div class="control">
+            <a class="button is-info" href="/all-books/<%= book.id %>/edit">Edit Book</a>
         </div>
+        <p class = "control">
         <form action="/all-books/<%= book.id %>?_method=DELETE" method="POST">
-            <input class = "button" type="submit" value="Delete Product"/>
+            <input class = "button is-danger" type="submit" value="Delete Book"/>
         </form>
+        </p>
+    </div>
+
     </div>
     <article>
         <h2>
