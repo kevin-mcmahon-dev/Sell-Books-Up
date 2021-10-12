@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  
 <body>
-   
-    <h1>All Books</h1>
-    
-    
+    <h1>All Books Page</h1>
+
+    <div class="control">
+        <a class="button is-info" href="/all-books/new-book">New Book</a>
+    </div>
+
+    <div>
+        <% for(let i = 0; i < books.length; i++) { %>
+            <% const book = books[i]; %>
+            <div>
+                <section>
+                    <img src="<%= book.image %>" alt="Book Image" />
+                </section>
+                <div>
+                    <h3>
+                        <a href="/all-books/<%= book.id %>">
+                            <%= book.title %>
+                        </a>
+                    </h3>
+                    <h6>
+                        <%= book.author %>
+                    </h6>
+                    <p>
+                        $<%= book.price %>
+                    </p>
+                </div>
+            </div>
+        <% } %>
+    </div>
 </body>
 </html>
+
