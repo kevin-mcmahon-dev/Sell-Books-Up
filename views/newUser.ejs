@@ -9,19 +9,18 @@
 
     <h1>New User</h1>
 
-    <div>
-        <form action='/' method='POST'>
-            <label>Username</label> 
-            <input class='input' type='text' placeholder='halIncandenza' name='username'><br>
-            <label>Password</label>
-            <input class='input' type='text' name='password'><br>
-            <label>Name</label>
-            <input class='input' type='text' placeholder='Hal Incandenza' name='name'><br>
-            <button>Create User</button>
-        </form> 
-    </div>
-
-    <%- include('./partials/footer.ejs') %>
-
+    <section class='form'>
+        <div class='newUserForm'>
+            <form action='/' method='POST'>
+                <label>Name</label>
+                <input class='input' type='text' placeholder='Hal Incandenza' name='name'><br>
+                <label>Username</label> 
+                <input class='input' type='text' placeholder='halIncandenza' name='username'><br>
+                <label>Password</label>
+                <input class='input' type='text' name='password'><br>
+                <button class='createUserBtn'>Create User</button>
+            </form> 
+        </div>
+    </section>
 </body>
 </html>
