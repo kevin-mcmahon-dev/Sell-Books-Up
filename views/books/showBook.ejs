@@ -1,1 +1,66 @@
-<h1>Show Book</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/scripts/main.js" defer></script>
+
+    <title>Show Book</title>
+</head>
+<body>
+    <p>
+        <img src="<%= book.image %>" alt="Book Image">
+    </p>
+    <div>
+        <h3>
+            Title: <%= book.title %>
+        </h3>
+        <h6>
+            Author: <%= book.author %>
+        </h6>
+        <p>
+            Price: <%= book.price %>
+        </p>
+
+        <div>
+            <a href="/all-books/<%= book.id %>/edit">Edit Product</a>
+        </div>
+        <form action="/all-books/<%= book.id %>?_method=DELETE" method="POST">
+            <input class = "button" type="submit" value="Delete Product"/>
+        </form>
+    </div>
+    <article>
+        <h2>
+            Reviews:
+        </h2>
+        <h4>
+            
+        </h4>
+        <section>
+            <% reviews.forEach(review => { %>
+                <div>
+                    <h4>
+                        <!--  user.username  -->
+                    </h4>
+                    <h4>
+                        <%= review.user %>
+                    </h4>
+                    <p>
+                        <%= review.content %>
+                    </p>
+                    <p>
+                        rating: <%= review.rating %>
+                    </p>
+                </div>
+            <% }) %>
+        </section>
+    </article>
+</body>
+</html>
