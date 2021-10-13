@@ -40,40 +40,40 @@ const User = require("../models/user");
     // );
 // });
 
-Review.deleteMany({}, function (error, deletedReviews) {
-    if (error) {
-        return console.log(error);
-    }
-    Review.insertMany(
-        [
-        {
-            rating: 5,
-            content: "Wonderful Book",
-            user: "616517bba27b340c38528c7e", 
-            book: "616512adbfb6b5aa98753aea",
-        },
-        {
-            rating: 1,
-            content: "A miserable read",
-            user: "6165174ca27b340c38528c7d",
-            book: "616512adbfb6b5aa98753aec",
-        },
-        {
-            rating: 3,
-            content: "Not my cup of tea, but I see why someone might like it.",
-            user: "6165180aa27b340c38528c7f",
-            book: "616512adbfb6b5aa98753aec",
-        },
-        ],
-        function (error, createdReviews) {
-        if (error) {
-            return console.log(error);
-        }
-        console.log("=== Seed Complete ===");
-        console.log(createdReviews);
-        }
-    );
-});
+// Review.deleteMany({}, function (error, deletedReviews) {
+//     if (error) {
+//         return console.log(error);
+//     }
+//     Review.insertMany(
+//         [
+//         {
+//             rating: 5,
+//             content: "Wonderful Book",
+//             user: "616517bba27b340c38528c7e", 
+//             book: "616512adbfb6b5aa98753aea",
+//         },
+//         {
+//             rating: 1,
+//             content: "A miserable read",
+//             user: "6165174ca27b340c38528c7d",
+//             book: "616512adbfb6b5aa98753aec",
+//         },
+//         {
+//             rating: 3,
+//             content: "Not my cup of tea, but I see why someone might like it.",
+//             user: "6165180aa27b340c38528c7f",
+//             book: "616512adbfb6b5aa98753aec",
+//         },
+//         ],
+//         function (error, createdReviews) {
+//         if (error) {
+//             return console.log(error);
+//         }
+//         console.log("=== Seed Complete ===");
+//         console.log(createdReviews);
+//         }
+//     );
+// });
 
 
 
