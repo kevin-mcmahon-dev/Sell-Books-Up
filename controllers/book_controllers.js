@@ -5,6 +5,7 @@ const Book = require("../models/book");
 const Review = require("../models/review");
 const User = require("../models/user");
 
+
 router.get("/", async function (req, res) {
     try {
 
@@ -26,6 +27,8 @@ router.get("/", async function (req, res) {
 router.get("/new-book", (req, res) => {
     res.render("newBook");
 });
+
+
 
 router.post("/", async (req, res) => {
     try {
@@ -108,6 +111,7 @@ router.delete("/:id", (req, res) => {
         console.log(deletedBook);
         return res.redirect("/all-books");
     });
+
 });
 
 module.exports = router;
