@@ -13,9 +13,9 @@
     <div class='usernameGrid'>
     <% for(let i = 0; i < user.length; i++) { %>
 
-        <a href='/login/<%= user[i].id %>'>
-        <p class='usernameTile'>@<%= user[i].username %></p>
-        </a>
+        
+        <p class='usernameTile'><a href='/login/<%= user[i].id %>'>@<%= user[i].username %></a></p>
+        
 
         <% } %>
 
