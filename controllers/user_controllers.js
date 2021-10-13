@@ -14,22 +14,38 @@ router.get("/new-user", function (req, res) {
     res.render('newUser.ejs');
 });
 
-/*-------show route-----------*/
-router.get('/login/:id', (req, res, next) => {
-    User.findById( req.params.id, (error, foundUser) => {
+
+//show reviews on page
+router.get("/login/:id", async function (req, res, next) {
+    try {
         
-        if(error) {
-            return console.log(error);
-            req.error = error
-            return next();
+        const user = await User.findById(req.params.id)
+        console.log('this is the user: ', user);
+        const reviews = await Review.find({user: req.params.id}).populate("user");
+        console.log('this is the review', reviews);
+        // const book = await User.findById(req.params.id);
+        
+
+        const book_log = [];
+        const book = [];
+
+        for (let i = 0; i <= reviews.length - 1; i++) {
+            book_log[i] = reviews[i].user;
+            book[i] = await Review.find({user: book_log[i]}).populate("book"); 
         }
+        console.log('this is the book', book);
 
         const context = {
-            user: foundUser,
-        }
-        
-        res.render('./users/showUser', context);
-    });
+            user,
+            reviews,
+            book,
+        };
+
+        return res.render("./users/showUser", context);
+
+    } catch (error) {
+        return console.log(error);
+    }
 });
 
 // create route
@@ -45,8 +61,6 @@ router.post('/', (req, res) => {
     })
     
 })
-
-
 
 
 //login index page

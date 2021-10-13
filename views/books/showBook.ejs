@@ -38,22 +38,25 @@
         </h2>
         
           <!-- add before your reviews column -->
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">User</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="number"
+            name="rating"
+            min="0"
+            max="5"
+            placeholder="0-5">
+          </div>
         <section class="column is-one-quarter">
-            <div class="box is-flex-direction-column">
+            <div class="newUserForm">
                 <form action="/all-books/:id" method="POST">
-                    <div class="field">
-                    <label class="label">Rating</label>
-                        <div class="control">
-                        <input
-                            class="input"
-                            type="number"
-                            name="rating"
-                            min="0"
-                            max="5"
-                            placeholder="0-5"
-                        />
-                        </div>
-                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Rating</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="number"
+                        name="rating"
+                        min="0"
+                        max="5"
+                        placeholder="0-5">
+                      </div>
                     <div class="field">
                         <label class="label">User</label>
                             <div class="control">
