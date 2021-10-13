@@ -1,21 +1,92 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require("bcryptjs");
 
 const Book = require("../models/book");
 const Review = require("../models/review");
 const User = require("../models/user");
 
-
-
-
 /*-------------NEW USER ROUTE-------------*/
 router.get("/new-user", function (req, res) {
-
     res.render('newUser.ejs');
 });
 
+router.post("/new-user", async function (req, res) {
+    try {
+        const foundUser = await User.exists({username: req.body.username});
+
+        if (foundUser) {
+            console.log("Account already exists");
+            return res.redirect("/login");
+        }
+
+        const salt = await bcrypt.genSalt(12);
+        const hash = await bcrypt.has(req.body.password, salt);
+
+        req.body.password = hash;
+
+        const newUser = await User.create(req.body);
+        console.log(newUser);
+
+    } catch (error) {
+        console.log(error);
+        return res.send(error);
+    }
+});
+
+// create route
+// Unsure about needing this block anymore
+
+// router.post('/', (req, res) => {
+    
+//     User.create(req.body, (error, createdUser) => {
+//         if (error) {
+//             return console.log(error)
+//         }
+
+//         console.log(createdUser);
+//         return res.redirect('/login');
+//     })   
+// })
+
+//login index page
+router.get("/login", function (req, res) {
+    res.render("users/login");
+});
+
+router.post("/login", async function (req, res) {
+    try {
+        const foundUser = await User.findOne({username: req.body.username});
+        console.log(`foundUser object is ${foundUser}`);
+
+        if (!foundUser) return res.redirect("/new-user");
+
+        const match = await bcrypt.compare(req.body.password, foundUser.password);
+
+        if (!match) return res.send("The supplied username or password is incorrect.");
+
+        req.session.currentUser = {
+            //originally - "id: foundUser._id"
+            _id: foundUser._id,
+            username: foundUser.username,
+        };
+
+        console.log(req.session.currentUser);
+        console.log(req.session.currentUser._id)
+        return res.redirect(`/login/:${req.session.currentUser._id}`);
+
+    } catch (error) {
+        console.log(error);
+        res.send(error);
+    }
+});
+
+// router.get("/login/:id", function (req, res) {
+//     res.send("This is where I create a new user");
+// });
+
 /*-------show route-----------*/
-router.get('/login/:id', (req, res, next) => {
+router.get(`/login/:id`, (req, res, next) => {
     User.findById( req.params.id, (error, foundUser) => {
         
         if(error) {
@@ -30,44 +101,6 @@ router.get('/login/:id', (req, res, next) => {
         
         res.render('./users/showUser', context);
     });
-});
-
-// create route
-router.post('/', (req, res) => {
-    
-    User.create(req.body, (error, createdUser) => {
-        if (error) {
-            return console.log(error)
-        }
-
-        console.log(createdUser);
-        return res.redirect('/login');
-    })
-    
-})
-
-
-
-
-//login index page
-router.get("/login", function (req, res) {
-
-    User.find({}, (error, user) => {
-        if(error) {
-            console.log(error);
-        }
-
-        const context = {
-            user,
-        }
-        res.render('./users/login', context);
-
-    })
-    
-});
-
-router.get("/login/:id", function (req, res) {
-    res.send("This is where I create a new user");
 });
 
 module.exports = router;
