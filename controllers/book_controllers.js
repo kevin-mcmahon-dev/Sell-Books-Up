@@ -100,11 +100,8 @@ router.get("/new-book", (req, res) => {
     res.render("newBook");
 });
 
-<<<<<<< HEAD
-// Route to NEW USER
-router.get("/new-user", async function (req, res) {
-    res.render("newUser");
-=======
+
+
 router.post("/", async (req, res) => {
     try {
         await Book.create(req.body);
@@ -186,7 +183,7 @@ router.delete("/:id", (req, res) => {
         console.log(deletedBook);
         return res.redirect("/all-books");
     });
->>>>>>> 5daa81c7e749ee236a1622b47289f02b9e14722f
+
 });
 
 module.exports = router;
