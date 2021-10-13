@@ -100,6 +100,8 @@ router.get("/new-book", (req, res) => {
     res.render("newBook");
 });
 
+
+
 router.post("/", async (req, res) => {
     try {
         await Book.create(req.body);
@@ -181,6 +183,7 @@ router.delete("/:id", (req, res) => {
         console.log(deletedBook);
         return res.redirect("/all-books");
     });
+
 });
 
 module.exports = router;
