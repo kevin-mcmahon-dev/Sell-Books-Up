@@ -243,25 +243,16 @@
     margin-left: 20px;
 }
 
-.newArrivals {
-     
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 10px;
-        row-gap: -10px;
-        margin-left: 20px;
-    
-}
-
-
 /*-------------------------end of user show page css---------------------*/
 
 
 /*-------------------------this is the footer css---------------------*/
+
 .footer-basic {
     padding:200px 0;
     background-color:#ffffff;
     color:rgb(49, 183, 255);
+    
   }
   
   .footer-basic ul {
@@ -320,6 +311,36 @@
   
   /*-------------------------end of user footer css---------------------*/
 
- /*-------------------------this is the nav css---------------------*/
+ /*-------------------------this is the ALL-BOOKS css---------------------*/
 
+ #newBookButton {
+     margin: 20px;
+     
+ }
+
+.ourCatalog {
+    text-align: center;
+    margin: 25px;
+    
+}
+
+.displayCatalog {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 28px;
+    margin-left: 80px;
+}
+
+/*-------------------------end of ALL-BOOKS css---------------------*/
+
+/*-------------------------this is the HOME PAGE / INDEX css---------------------*/
+
+.newArrivals {   
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: -10px;
+    margin-left: 20px;
+}
 
