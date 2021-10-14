@@ -20,7 +20,7 @@ app.use(express.static('public'))
 app.use(
     session(
         {
-            store: MongoStore.create({mongoUrl: "mongodb://localhost:27017/Project_One"}),
+            store: MongoStore.create({mongoUrl: process.env.MONGOURL}),
             secret: "super secret",
             resave: false,
             saveUninitialized: false,
