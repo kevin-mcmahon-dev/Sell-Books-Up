@@ -1,9 +1,11 @@
+
+require("dotenv").config();
 const express = require('express');
 const methodOverride = require('method-override');
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 // Global variables
-const PORT = 4000;
+const PORT = process.env.PORT;
 const controllers = require("./controllers");
 
 // Run my express dependency
@@ -18,7 +20,7 @@ app.use(express.static('public'))
 app.use(
     session(
         {
-            store: MongoStore.create({mongoUrl: "mongodb://localhost:27017/Project_One"}),
+            store: MongoStore.create({mongoUrl: process.env.MONGODB_URI}),
             secret: "super secret",
             resave: false,
             saveUninitialized: false,

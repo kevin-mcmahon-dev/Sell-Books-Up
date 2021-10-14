@@ -5,87 +5,70 @@
     <%- include('../partials/head.ejs')%>
 <body>
     <%- include('../partials/nav.ejs') %>
-    <h1>Show Book Page</h1>
-    <p>
-        <img src="<%= book.image %>" alt="Book Image">
-    </p>
-    <div>
-        <h3>
-            Title: <%= book.title %>
-        </h3>
-        <h6>
-            Author: <%= book.author %>
-        </h6>
-        <p>
-            Price: <%= book.price %>
-        </p>
+    
+    <div class='bookCard'>
+        <img src="<%= book.image %>" alt="Book Image" width='400' height='500'>
 
-        <% if (typeof user !== 'undefined') { %>
-            <% if (user.username === "Admin") { %>
-                <div class = "field is-grouped mt-5">
-                
-                <div class="control">
-                    <a class="button is-info" href="/all-books/<%= book.id %>/edit">Edit Book</a>
-                </div>
-            
-                <p class = "control">
-                <form action="/all-books/<%= book.id %>?_method=DELETE" method="POST">
-                    <input class = "button is-danger" type="submit" value="Delete Book"/>
-                </form>
+        <div class='bookCardInfo'>
+            <div class='bookInfo'>
+                <h1>
+                    Title: <%= book.title %>
+                </h1>
+                <h3>
+                    Author: <%= book.author %>
+                </h3>
+                <p>
+                    Price: $<%= book.price %>
                 </p>
+            </div>
+
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia
+                similique vitae, tenetur in ullam enim commodi molestias quod dolorum. 
+                Enim nostrum mollitia vel consequatur minus est! Expedita in tempore corrupti.
+            </p>
+            <div class='bookShowFunctionality'>
             
+              <% if (typeof user !== 'undefined') { %>
+                <% if (user.username === "Admin") { %> 
+                <div class="control">
+                    <a class="btn btn-primary" href="/all-books/<%= book.id %>/edit">Edit Book</a>
                 </div>
-            <% } %>
-        <% } %>
+                <form action="/all-books/<%= book.id %>?_method=DELETE" method="POST">
+                    <input class = "btn btn-danger bookShowDeleteBtn" type="submit" value="Delete Book"/>
+                </form>
+                <% } %>
+            <% } %>   
+            
+            </div>
+            </div>
+        </div>
     </div>
+
+
     <article>
-        <h2>
-            Reviews:
-        </h2>
-        
-        <% if (typeof user !== 'undefined') { %>
-          <!-- add before your reviews column -->
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-sm">User</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="number"
-            name="rating"
-            min="0"
-            max="5"
-            placeholder="0-5">
-          </div>
-        <section class="column is-one-quarter">
-            <div class="newUserForm">
-                <form action="/all-books/:id" method="POST">
-
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Rating</span>
-                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="number"
-                        name="rating"
-                        min="0"
-                        max="5"
-                        placeholder="0-5">
-                      </div>
-                    <div class="field">
-
-                        <label class="label">User</label>
-                            <div class="control">
-                            <input
-                                class="input"
-                                type="text"
-                                name="user"
-                                placeholder="User _id"
-                            />
-                            </div>
-                        </div> -->
-                    <div class="field">
-                    <label class="label">Content</label>
-                        <div class="control">
-                        <textarea
-                            name="content"
-                            class="textarea"
-                            placeholder="Leave a review!"
-                        ></textarea>
+        <hr>
+        <!-- review form -->
+        <h2 class='reviewsHeader'>Reviews</h2>
+        <div class='bookShowReview'>
+            <section class="column is-one-quarter">
+                <div class="newUserForm">
+                <% if (typeof user !== 'undefined') { %>
+                    <form action="/all-books/:id" method="POST">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Rating</span>
+                            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="number"
+                            name="rating"
+                            min="0"
+                            max="5"
+                            placeholder="0-5">
                         </div>
+
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Content</span>
+                                <textarea type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+                                name="content"
+                                placeholder="Leave a review!"></textarea>
                     </div>
               <!-- Here is our hidden input to provide the product id -->
                     <input type="hidden" name="user" value="<%= user._id %>" />                 
@@ -94,31 +77,32 @@
                         <button class="button is-link is-fullwidth">Submit</button>
                     </div>
                 </form>
+            <% } %>
             </div>
         </section>
-        <% } %>
-
-        <section>
-            <% for (let i = 0; i < reviews.length; i++) { %>
-                <div>
-                    <h4>
-                        <%= test[i][0].user.username %>
-                    </h4>
-                    <p>
-                        <%= reviews[i].content %>
-                    </p>
-                    <% for( let idx = 0; idx < 5; idx++ ) { %>
-                    
-                        <span class="icon">
-                            <% if (idx < reviews[i].rating) { %>
-                            <i class="fas fa-star"></i>
-                            <% } %>
-                        </span>
-
-                    <% } %>
-                </div>
-            <% } %>
-        </section>
+            
+            <section>
+                <% for (let i = 0; i < reviews.length; i++) { %>
+                    <div class='bookShowReviewCard'>
+                        <h4>
+                            @<%= test[i][0].user.username %>
+                        </h4>
+                        <p>
+                            <%= reviews[i].content %>
+                        </p>
+                        <% for( let idx = 0; idx < 5; idx++ ) { %>
+                            
+                            <span class="icon">
+                                <% if (idx < reviews[i].rating) { %>
+                                <i class="fas fa-star"></i>
+                                <% } %>
+                            </span>
+                        
+                        <% } %>
+                    </div>
+                <% } %>
+            </section>
+        </div>
     </article>
     <%- include('../partials/footer.ejs') %>
 </body>
