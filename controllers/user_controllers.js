@@ -6,6 +6,18 @@ const Book = require("../models/book");
 const Review = require("../models/review");
 const User = require("../models/user");
 
+// let authorized = false;
+// let userState;
+
+// router.get("/", async function (req, res) {
+//     // if (!authorized) {
+//     //     userState = "/login";
+//     // } else if (authorized) {
+//     //     userState = req.session.currentUser.id;
+//     // }
+
+//     res.render("home");
+// });
 /*-------------NEW USER ROUTE-------------*/
 router.get("/new-user", function (req, res) {
     res.render('newUser.ejs');
@@ -108,7 +120,7 @@ router.get("/logout", async function (req, res) {
     try {
     
         await req.session.destroy();
-        return res.redirect("/login");
+        return res.redirect("/");
 
     } catch (error) {
         console.log(error);

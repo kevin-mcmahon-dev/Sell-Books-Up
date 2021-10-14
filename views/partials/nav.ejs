@@ -6,6 +6,12 @@
             <li><a href="/all-books">All Books</a></li>
             <li><a href="/new-user">New User</a></li>
             <li><a href="/login">Log In</a></li>
+            <% if (typeof user !== 'undefined') { %>
+                <li><a href="/login/<%= user._id %> ">My Account</a></li>
+            <% } else { %>
+                <li><a href="/login">My Account</a></li>
+            <% } %>
+
         </ul>
     </nav>
     <img src="https://thumbs.dreamstime.com/b/book-shop-store-exterior-graphic-black-white-sketch-illustration-book-shop-store-exterior-graphic-black-white-sketch-illustration-118760020.jpg" alt="Our historic building" width="500" height="200">
