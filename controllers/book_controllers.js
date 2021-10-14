@@ -6,7 +6,7 @@ const {
     Book,
     Review,
     User,
-} = require("../models/Book");
+} = require("../models");
 
 
 router.get("/", async function (req, res) {

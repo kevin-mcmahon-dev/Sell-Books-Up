@@ -6,7 +6,7 @@ const {
     Book,
     Review,
     User,
-} = require("../models/Book");
+} = require("../models");
 
 /*-------------NEW USER ROUTE-------------*/
 router.get("/new-user", function (req, res) {
