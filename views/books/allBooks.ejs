@@ -4,11 +4,15 @@
 <body>
     <%- include('../partials/nav.ejs') %>
 
+  <% if (typeof user !== 'undefined') { %>
+    <% if (user.username === "Admin") { %>
     <div class="text-right" id="newBookButton">
         <button>
             <a class="button is-info" href="/all-books/new-book">Add New Book</a>
         </button>
     </div>
+    <% } %>
+  <% } %>
     
 
     <div class="ourCatalog">

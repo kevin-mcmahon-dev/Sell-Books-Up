@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         require: [true, "A username must be entered."],
+        unique: true,
     }, 
     password: {
         type: String,
@@ -12,7 +13,12 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         require: [true, "Name must be entered"],
+    },
+    },
+    {
+        timestamps: true,
     }
+);
     // Stretch
 
     // email: {
@@ -27,7 +33,6 @@ const userSchema = new mongoose.Schema({
     // cart: [{
     //     type: String
     // }],
-});
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
