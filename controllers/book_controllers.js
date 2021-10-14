@@ -34,6 +34,7 @@ router.get("/new-book", (req, res) => {
 router.post("/", async (req, res) => {
     try {
         await Book.create(req.body);
+        console.log(req.body)
         return res.redirect("/all-books");
     } catch (error) {
         return console.log(error);
