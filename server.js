@@ -1,3 +1,4 @@
+
 require("dotenv").config();
 const express = require('express');
 const methodOverride = require('method-override');
@@ -19,7 +20,7 @@ app.use(express.static('public'))
 app.use(
     session(
         {
-            store: MongoStore.create({mongoUrl: "mongodb://localhost:27017/Project_One"}),
+            store: MongoStore.create({mongoUrl: process.env.MONGODB_URI}),
             secret: "super secret",
             resave: false,
             saveUninitialized: false,
