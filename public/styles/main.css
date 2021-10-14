@@ -1,11 +1,124 @@
+/*---------------this is the book show page css-----------------*/
 
-.navList {
+
+.bookCard {
     display: flex;
-    flex-direction: row;
+
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.bookCardInfo {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    margin-left: 30px;
+}
+
+.bookInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.bookInfo p {
+    font-size: 20px;
+}
+
+.bookSummary {
+    font-size: 25px;
+    margin-bottom: 50px;
+    max-width: 1fr;
+}
+
+.bookShowFunctionality {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.bookShowDeleteBtn {
+    margin-left: 20px;
+}
+
+.reviewsHeader {
+    
+    margin-left: 20px;
+}
+
+.bookShowReview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0;
+    margin-left: 20px;
+}
+
+.bookShowReviewCard {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    justify-content: flex-start;
+    border: 2px solid rgb(49, 183, 255);
+    border-radius: 20px;
+
 }
 
 
+/*----------------this is the end of the book show page css-----*/
+
+/*---------------BOOK EDIT FORM PAGE----------------------------*/
+
+.editBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.editBookForm {
+    background-color: rgb(49, 183, 255);
+    border-radius: 20px;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+    width: 50%;
+}
+
+.editBookForm h1 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/*----------------END OF BOOK EDIT FORM ----------------------*/
+
+/*-------------------NEW BOOK PAGE ---------------------------*/
+
+.editBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.editBookForm {
+    background-color: rgb(49, 183, 255);
+    border-radius: 20px;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+    width: 50%;
+}
+
+.editBookForm h1 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+
+
+/*---------------------END OF NEW BOOK PAGE-----------------------*/
 
 
 /*----------------this is the user login page css --------------*/
@@ -31,7 +144,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin-top: 200px;
+}
+
+.form h1 {
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 .newUserForm {
@@ -39,7 +157,6 @@
     justify-content: flex-start;
     align-items: flex-start;
     background-color: rgb(49, 183, 255);
-    
     border-radius: 20px;
     padding-left: 100px;
     padding-top: 50px;
@@ -51,6 +168,8 @@
 .createUserBtn {
     margin-top: 20px;
 }
+
+/*----------------- this is the end of the new use hsow page --------------*/
 
 /*----------------- this is the user show page css-------------- */
 
@@ -124,25 +243,16 @@
     margin-left: 20px;
 }
 
-.newArrivals {
-     
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 10px;
-        row-gap: -10px;
-        margin-left: 20px;
-    
-}
-
-
 /*-------------------------end of user show page css---------------------*/
 
 
 /*-------------------------this is the footer css---------------------*/
+
 .footer-basic {
     padding:200px 0;
     background-color:#ffffff;
     color:rgb(49, 183, 255);
+    
   }
   
   .footer-basic ul {
@@ -201,6 +311,36 @@
   
   /*-------------------------end of user footer css---------------------*/
 
- /*-------------------------this is the nav css---------------------*/
+ /*-------------------------this is the ALL-BOOKS css---------------------*/
 
+ #newBookButton {
+     margin: 20px;
+     
+ }
+
+.ourCatalog {
+    text-align: center;
+    margin: 25px;
+    
+}
+
+.displayCatalog {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 28px;
+    margin-left: 80px;
+}
+
+/*-------------------------end of ALL-BOOKS css---------------------*/
+
+/*-------------------------this is the HOME PAGE / INDEX css---------------------*/
+
+.newArrivals {   
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: -10px;
+    margin-left: 20px;
+}
 
