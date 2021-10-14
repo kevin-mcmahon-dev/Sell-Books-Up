@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
 
 router.get("/:id", async function (req, res, next) {
     try {
-        console.log(" current session " + req.session.currentUser._id);
+        
         const book = await Book.findById(req.params.id);
         const reviews = await Review.find({book: req.params.id}).populate("book");
 
