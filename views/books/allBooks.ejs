@@ -13,18 +13,17 @@
     
     <div>
         <div class='userReviews'>
-        <% for(let i = 0; i < books.length; i++) { %>
-            <% const book = books[i]; %>
-            <div>
-                <section>
-                    <img src="<%= book.image %>" alt="Book Image" />
-                </section>
-                <div>
-                    <h3>
+            <% for(let i = 0; i < books.length; i++) { %>
+            <div class="card" style="width: 12rem;">
+                <% const book = books[i]; %>
+                <img  src="<%= book.image %>" alt="Book Image"  class="card-img-top" alt="...">
+
+                <div class="card-body">
+                    <h4>
                         <a href="/all-books/<%= book.id %>">
                             <%= book.title %>
                         </a>
-                    </h3>
+                    </h4>
                     <h6>
                         <%= book.author %>
                     </h6>
@@ -33,9 +32,13 @@
                     </p>
                 </div>
             </div>
-        <% } %>
+            <% } %>
         </div>
     </div>
+            
+        
+
+    
 
     <%- include('../partials/footer.ejs') %>
 </body>
