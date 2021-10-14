@@ -15,7 +15,7 @@
               <a class="nav-link active" href="/new-user">New User</a>
               <a class="nav-link active" href="/login">Log In</a>
               <% if (typeof user !== 'undefined') { %>
-                <a class="nav-link active" href="/<%= user._id %> ">My Account</a>
+                <a class="nav-link active" href="/login/<%= user._id %> ">My Account</a>
               <% } else { %>
                 <a class="nav-link active" href="/login">My Account</a>
               <% } %> 
