@@ -1,5 +1,7 @@
 const express = require('express');
 const methodOverride = require('method-override');
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 // Global variables
 const PORT = 4000;
 const controllers = require("./controllers");
@@ -7,12 +9,32 @@ const controllers = require("./controllers");
 // Run my express dependency
 const app = express();
 
-
 /* == App configs == */
 app.set('view engine', 'ejs');
 
 /* == middlewares == */
 app.use(express.static('public'))
+
+app.use(
+    session(
+        {
+            store: MongoStore.create({mongoUrl: "mongodb://localhost:27017/Project_One"}),
+            secret: "super secret",
+            resave: false,
+            saveUninitialized: false,
+            cookie: {
+                maxAge: 1000 * 60 * 60 * 24 * 2,
+            },
+        }
+    )
+);
+
+app.use(function (req, res, next) {
+    
+    res.locals.user = req.session.currentUser;
+    next();
+
+});
 
 /* = this should be near the top, above the routes == */
 app.use(express.urlencoded({ extended: false }));

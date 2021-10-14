@@ -20,23 +20,30 @@
             Price: <%= book.price %>
         </p>
 
-        <div class = "field is-grouped mt-5">
-        <div class="control">
-            <a class="button is-info" href="/all-books/<%= book.id %>/edit">Edit Book</a>
-        </div>
-        <p class = "control">
-        <form action="/all-books/<%= book.id %>?_method=DELETE" method="POST">
-            <input class = "button is-danger" type="submit" value="Delete Book"/>
-        </form>
-        </p>
-    </div>
-
+        <% if (typeof user !== 'undefined') { %>
+            <% if (user.username === "Admin") { %>
+                <div class = "field is-grouped mt-5">
+                
+                <div class="control">
+                    <a class="button is-info" href="/all-books/<%= book.id %>/edit">Edit Book</a>
+                </div>
+            
+                <p class = "control">
+                <form action="/all-books/<%= book.id %>?_method=DELETE" method="POST">
+                    <input class = "button is-danger" type="submit" value="Delete Book"/>
+                </form>
+                </p>
+            
+                </div>
+            <% } %>
+        <% } %>
     </div>
     <article>
         <h2>
             Reviews:
         </h2>
         
+        <% if (typeof user !== 'undefined') { %>
           <!-- add before your reviews column -->
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">User</span>
@@ -49,6 +56,7 @@
         <section class="column is-one-quarter">
             <div class="newUserForm">
                 <form action="/all-books/:id" method="POST">
+
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Rating</span>
                         <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="number"
@@ -58,6 +66,7 @@
                         placeholder="0-5">
                       </div>
                     <div class="field">
+
                         <label class="label">User</label>
                             <div class="control">
                             <input
@@ -67,7 +76,7 @@
                                 placeholder="User _id"
                             />
                             </div>
-                        </div>
+                        </div> -->
                     <div class="field">
                     <label class="label">Content</label>
                         <div class="control">
@@ -79,6 +88,7 @@
                         </div>
                     </div>
               <!-- Here is our hidden input to provide the product id -->
+                    <input type="hidden" name="user" value="<%= user._id %>" />                 
                     <input type="hidden" name="book" value="<%= book._id %>" />
                     <div class="control">
                         <button class="button is-link is-fullwidth">Submit</button>
@@ -86,7 +96,8 @@
                 </form>
             </div>
         </section>
-        
+        <% } %>
+
         <section>
             <% for (let i = 0; i < reviews.length; i++) { %>
                 <div>

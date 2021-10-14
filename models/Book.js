@@ -16,8 +16,13 @@ const bookSchema = new mongoose.Schema({
     price: {
         type: Number,
         require: [true, "A price must be assigned"],
-    },
-    // Non-required key-value pairs
+    },  
+});
+
+const Book = mongoose.model("Book", bookSchema);
+module.exports = Book;
+
+   // Non-required key-value pairs
     // genre: {
 
     // },
@@ -28,8 +33,3 @@ const bookSchema = new mongoose.Schema({
     // tags: [{
     //     type: String,
     // }],
-    
-});
-
-const Book = mongoose.model("Book", bookSchema);
-module.exports = Book;
