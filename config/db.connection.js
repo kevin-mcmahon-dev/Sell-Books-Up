@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const connectionStr = "mongodb://localhost:27017/Project_One";
+const connectionStr = process.env.MONGODB_URI;
+
 mongoose.connect(connectionStr);
 
 mongoose.connection.on('connected', () => {
@@ -12,3 +13,4 @@ mongoose.connection.on('error', (error) => {
 });
 
 mongoose.connection.on('disconnected', () => console.log('MongoDB disconnected  ⚡️ 🔌 ⚡️'));
+
