@@ -4,59 +4,50 @@
 <body>
         <%- include('./partials/nav.ejs') %>
 
-        <main>
-            
-            <h2>---Image of bookstore full width---</h2>
+        
 
-            <!-- New Arrivals Div -->
-            <div>
-                <section>
-                    <h3>New Arrivals</h3>
-                    <p></p>              
-                      <section class="imageSection">
-                          <!-- href to GET route to /all-books/:id -->
-                        <a href=""> <img src="" alt="">book image</img> </a>
-                        <a href=""> <img src="" alt="">book image</img> </a>
-                        <a href=""> <img src="" alt="">book image</img> </a>
-                        <a href=""> <img src="" alt="">book image</img> </a>                   
-                      </section>
-                </section>
+              <!-- <h3>New Arrivals</h3> -->
+
+              <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/418k0HHt4TS._SY291_BO1,204,203,200_QL40_FMwebp_.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/516ASAx-FYL._SX332_BO1,204,203,200_.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/418k0HHt4TS._SY291_BO1,204,203,200_QL40_FMwebp_.jpg" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
-
+              
+         
             <!-- Best Sellers Div -->
-            <div>
-                <section>
-                    <h3>Best Sellers</h3>
-                    <p></p>                                
-                      <section class="imageSection">
-                          <!-- href to GET route to /all-books/:id -->
-                        <a href=""> <img src="" alt="">book image</img> </a>
-                        <a href=""> <img src="" alt="">book image</img> </a>
-                        <a href=""> <img src="" alt="">book image</img> </a>
-                        <a href=""> <img src="" alt="">book image</img> </a>  
-                      </section>
-                </section>
-              </div>
+     
 
             <!-- Staff Picks Div -->
-            <div>
-                <section>
-                    <h3>Staff Picks</h3>
-                    <p></p>              
-                      <section class="imageSection">
-                          <!-- href to GET route to /all-books/:id -->
-                        <a href=""> <img src="" alt="">book image</img> </a>
-                        <a href=""> <img src="" alt="">book image</img> </a>
-                        <a href=""> <img src="" alt="">book image</img> </a>
-                        <a href=""> <img src="" alt="">book image</img> </a>  
-                      </section>
-                </section>
-              </div>
+      
 
               <!-- Footer -->
               <%- include('./partials/footer.ejs') %>
 
-        </main>
+       
+
+                <!-- Required Bootstrap Scripts -->
+        <!-- WILL NEED TO ADD ON END OF EACH VIEW FILE AS PER BS DOC. -->
+
+
+
+
 </body>
 </html>
 

@@ -11,12 +11,12 @@
     <h1>Account Page</h1>
 
         <div class='userNav'>
-            <p>@<%= user.username %>'s Account</p>
+            <p><%= user.name %>'s Account</p>
             
             <!-- <p>name: <%= user.name %></p><br> -->
         </div>
 
-        <button style='margin-top: 20px;'><a href='/login'>Logout</a></button>
+        <button style='margin-top: 20px;'><a href='/logout'>Logout</a></button>
 
         <div class='cart-nav'>
             <h2>My Cart</h2>
@@ -32,25 +32,60 @@
 
         
         <h2>My Reviews</h2>
-        <div class='reviews'>
-            <div class='reviewTitle'>
-                <p>The Black Swan</p>
-            </div>
-            <div class='reviewStars'>
-                <% for( let index = 0; index < 5; index++ ) { %>
-                
-                    <i class="fas fa-star"></i>
-                
+        <div class='userReviews'>
+        <% for (let i = 0; i < reviews.length; i++) { %>
+        
+        <div class="card mb-3" style="max-width: 540px;">
+            
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="<%= book[i][i].book.image %>" class="img-fluid rounded-start" alt="Book Cover">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%= book[i][i].book.title %></h5>
+                  <p class="card-text"><%= reviews[i].content %></p>
+                  <p class="card-text"><small class="text-muted"><% for( let idx = 0; idx < 5; idx++ ) { %>
+                    
+                    <span class="icon">
+                        <% if (idx < reviews[i].rating) { %>
+                        <i class="fas fa-star"></i>
+                        <% } %>
+                    </span>
 
-                <% } %>
+                <% } %></small></p>
+                </div>
+                
+              </div>
             </div>
-            <div class='reviewContent'> 
-                <p>Here is my bad review. this is rather long winded only to test the styling
-                    becuase i'm really annoying. I hate reviews. Isn't it wild when it starts to 
-                    get this long???????/
-                </p>
-            </div>
+          </div>
+          <% } %>
         </div>
+        
+        <!-- <h2>My Reviews</h2>
+        <section>
+            <% for (let i = 0; i < reviews.length; i++) { %>
+                <div>
+                    <img src='<%= book[i][0].book.image %>'
+                    <h4>
+                        <%= book[i][0].book.title %>
+                        <%= book[i][0].book.author %>
+                    </h4>
+                    <p>
+                        <%= reviews[i].content %>
+                    </p>
+                    <% for( let idx = 0; idx < 5; idx++ ) { %>
+                    
+                        <span class="icon">
+                            <% if (idx < reviews[i].rating) { %>
+                            <i class="fas fa-star"></i>
+                            <% } %>
+                        </span>
+
+                    <% } %>
+                </div>
+            <% } %>
+        </section> -->
 
 
         
