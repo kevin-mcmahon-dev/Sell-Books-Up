@@ -3,28 +3,43 @@
     <%- include('./partials/head.ejs')%>
 <body>
     <%- include('./partials/nav.ejs') %>
-        <main>
-            <h2>---Image of bookstore full width---</h2>
-            <h3>New Book Page</h3>
-                <!-- As recommended: Form POST routes to /all-books, l8r to re-render /all-books/new-book -->
-                <!-- CB: ADD STRING FOR LINK PATH -->
+    <main>
+
+
+    <section class='editBox'>
+        <div class="editBookForm">
             <form action="/all-books" method="POST">
-                <div>
-                    <input type="text" id="title" name="title" placeholder="title" required>
-                    <input type="text" id="author" name="author" placeholder="author" required>
-                    <input type="text" id="price" name="price" placeholder="price" required>
-                    <input type="text" id="image" name="image" placeholder="image url" required>
-
-                    <!-- STRETCH for tags -->
-                    <!-- <input type="text" id="tags" name="tags"> -->
+                <h1>New Book Page</h1>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Title" name="title"/>
                 </div>
-                <button>Submit</button>
+
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Author</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Author" name="author"/>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Price</span>
+                    <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="10" name="price"/>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Image</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="http://" name="image"/>
+                </div>
+                <a href='/all-books'>Cancel</a>
+                <button class='btn btn-success'>Submit</button>
                     <!-- Cancel POST routes to /all-books -->
-                <button>Cancel</button>
+                
             </form>
+        </div>
+    </section>
 
-              <!-- Footer -->
-              <%- include('./partials/footer.ejs') %>
 
-        </main>
+            <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+
+    </main>
 </body>
