@@ -5,6 +5,7 @@
     <%- include('../partials/nav.ejs') %>
     <h1>All Books Page</h1>
 
+
     <% if (typeof user !== 'undefined') { %>
         <% if (user.username === "Admin") { %>
             <div class="control">
@@ -12,14 +13,9 @@
             </div>
         <% } %>
     <% } %>
-        
-    
-
-    <!-- <div class="control">
-        <a class="button is-info" href="/all-books/new-book">New Book</a>
-    </div> -->
 
     <div>
+        <div class='userReviews'>
         <% for(let i = 0; i < books.length; i++) { %>
             <% const book = books[i]; %>
             <div>
@@ -41,7 +37,9 @@
                 </div>
             </div>
         <% } %>
+        </div>
     </div>
+
     <%- include('../partials/footer.ejs') %>
 </body>
 </html>

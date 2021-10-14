@@ -6,22 +6,11 @@ const Book = require("../models/book");
 const Review = require("../models/review");
 const User = require("../models/user");
 
-// let authorized = false;
-// let userState;
-
-// router.get("/", async function (req, res) {
-//     // if (!authorized) {
-//     //     userState = "/login";
-//     // } else if (authorized) {
-//     //     userState = req.session.currentUser.id;
-//     // }
-
-//     res.render("home");
-// });
 /*-------------NEW USER ROUTE-------------*/
 router.get("/new-user", function (req, res) {
     res.render('newUser.ejs');
 });
+
 
 router.post("/new-user", async function (req, res) {
     try {
@@ -47,20 +36,38 @@ router.post("/new-user", async function (req, res) {
     }
 });
 
-// create route
-// Unsure about needing this block anymore
+//show reviews on page
+router.get("/login/:id", async function (req, res, next) {
+    try {
+        
+        const user = await User.findById(req.params.id)
+        console.log('this is the user: ', user);
+        const reviews = await Review.find({user: req.params.id}).populate("user");
+        console.log('this is the review', reviews);
+        // const book = await User.findById(req.params.id);
+        
 
-// router.post('/', (req, res) => {
-    
-//     User.create(req.body, (error, createdUser) => {
-//         if (error) {
-//             return console.log(error)
-//         }
+        const book_log = [];
+        const book = [];
 
-//         console.log(createdUser);
-//         return res.redirect('/login');
-//     })   
-// })
+        for (let i = 0; i <= reviews.length - 1; i++) {
+            book_log[i] = reviews[i].user;
+            book[i] = await Review.find({user: book_log[i]}).populate("book"); 
+        }
+        console.log('this is the book', book);
+
+        const context = {
+            user,
+            reviews,
+            book,
+        };
+
+        return res.render("./users/showUser", context);
+
+    } catch (error) {
+        return console.log(error);
+    }
+});
 
 //login index page
 router.get("/login", function (req, res) {
@@ -93,10 +100,6 @@ router.post("/login", async function (req, res) {
         res.send(error);
     }
 });
-
-// router.get("/login/:id", function (req, res) {
-//     res.send("This is where I create a new user");
-// });
 
 /*-------show route-----------*/
 router.get(`/login/:id`, (req, res, next) => {
