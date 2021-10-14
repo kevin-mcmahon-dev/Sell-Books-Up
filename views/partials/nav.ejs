@@ -14,6 +14,11 @@
               <a class="nav-link active" href="/all-books">All Books</a>
               <a class="nav-link active" href="/new-user">New User</a>
               <a class="nav-link active" href="/login">Log In</a>
+              <% if (typeof user !== 'undefined') { %>
+                <a class="nav-link active" href="/login/<%= user._id %> ">My Account</a>
+              <% } else { %>
+                <a class="nav-link active" href="/login">My Account</a>
+              <% } %> 
             </div>
           </div>
         </div>

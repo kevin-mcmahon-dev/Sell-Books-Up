@@ -5,9 +5,6 @@
     <%- include('../partials/head.ejs')%>
 <body>
     <%- include('../partials/nav.ejs') %>
-
-
-    
     
     <div class='bookCard'>
         <img src="<%= book.image %>" alt="Book Image" width='400' height='500'>
@@ -31,12 +28,18 @@
                 Enim nostrum mollitia vel consequatur minus est! Expedita in tempore corrupti.
             </p>
             <div class='bookShowFunctionality'>
+            
+              <% if (typeof user !== 'undefined') { %>
+                <% if (user.username === "Admin") { %> 
                 <div class="control">
                     <a class="btn btn-primary" href="/all-books/<%= book.id %>/edit">Edit Book</a>
                 </div>
                 <form action="/all-books/<%= book.id %>?_method=DELETE" method="POST">
                     <input class = "btn btn-danger bookShowDeleteBtn" type="submit" value="Delete Book"/>
                 </form>
+                <% } %>
+            <% } %>   
+            
             </div>
             </div>
         </div>
@@ -50,6 +53,7 @@
         <div class='bookShowReview'>
             <section class="column is-one-quarter">
                 <div class="newUserForm">
+                <% if (typeof user !== 'undefined') { %>
                     <form action="/all-books/:id" method="POST">
                         <div class="input-group input-group-sm mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Rating</span>
@@ -59,29 +63,23 @@
                             max="5"
                             placeholder="0-5">
                         </div>
-                        <div class="field">
-                            <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">User</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
-                                name="user"
-                                placeholder="User_id">
-                            </div>
-                            </div>
-                        <div class="field">
+
                             <div class="input-group input-group-sm mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">Content</span>
                                 <textarea type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
                                 name="content"
                                 placeholder="Leave a review!"></textarea>
-                            </div>
-                <!-- Here is our hidden input to provide the product id -->
-                        <input type="hidden" name="book" value="<%= book._id %>" />
-                        <div class="control">
-                            <button class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </section>
+                    </div>
+              <!-- Here is our hidden input to provide the product id -->
+                    <input type="hidden" name="user" value="<%= user._id %>" />                 
+                    <input type="hidden" name="book" value="<%= book._id %>" />
+                    <div class="control">
+                        <button class="button is-link is-fullwidth">Submit</button>
+                    </div>
+                </form>
+            <% } %>
+            </div>
+        </section>
             
             <section>
                 <% for (let i = 0; i < reviews.length; i++) { %>

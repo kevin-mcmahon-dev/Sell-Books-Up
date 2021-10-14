@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require("bcryptjs");
 
 const Book = require("../models/book");
 const Review = require("../models/review");
@@ -69,6 +70,7 @@ router.get("/:id", async function (req, res, next) {
 //Create new review
 router.post("/:id", async function (req, res) {
     try {
+
         await Review.create(req.body);
 
         return res.redirect('back');
