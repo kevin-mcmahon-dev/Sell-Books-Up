@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 
-const Book = require("../models/book");
-const Review = require("../models/review");
-const User = require("../models/user");
+const Book = require("../models/Book2");
+const Review = require("../models/Review2");
+const User = require("../models/User2");
 
 
 router.get("/", async function (req, res) {
