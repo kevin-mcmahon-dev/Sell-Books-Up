@@ -37,6 +37,7 @@
             Reviews:
         </h2>
         
+        <% if (typeof user !== 'undefined') { %>
           <!-- add before your reviews column -->
         <section class="column is-one-quarter">
             <div class="box is-flex-direction-column">
@@ -76,22 +77,7 @@
                         </div>
                     </div>
               <!-- Here is our hidden input to provide the product id -->
-                <% if (typeof user !== 'undefined') { %>
-                    <input type="hidden" name="user" value="<%= user._id %>" />
-                <% } else { %>
-                    <div class="field">
-                        <label class="label">User</label>
-                            <div class="control">
-                            <input
-                                class="input"
-                                type="text"
-                                name="user"
-                                placeholder="User _id"
-                            />
-                            </div>
-                        </div>
-                    <% } %>      
-                    
+                    <input type="hidden" name="user" value="<%= user._id %>" />                 
                     <input type="hidden" name="book" value="<%= book._id %>" />
                     <div class="control">
                         <button class="button is-link is-fullwidth">Submit</button>
@@ -99,7 +85,8 @@
                 </form>
             </div>
         </section>
-        
+        <% } %>
+
         <section>
             <% for (let i = 0; i < reviews.length; i++) { %>
                 <div>
