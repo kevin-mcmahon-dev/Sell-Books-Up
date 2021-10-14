@@ -16,7 +16,7 @@ const bookSchema = new mongoose.Schema({
     price: {
         type: Number,
         require: [true, "A price must be assigned"],
-    },    
+    },  
 });
 
 const Book = mongoose.model("Book", bookSchema);

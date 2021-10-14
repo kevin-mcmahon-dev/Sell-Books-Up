@@ -21,13 +21,14 @@ router.post("/new-user", async function (req, res) {
         }
 
         const salt = await bcrypt.genSalt(12);
-        const hash = await bcrypt.has(req.body.password, salt);
+        const hash = await bcrypt.hash(req.body.password, salt);
 
         req.body.password = hash;
 
         const newUser = await User.create(req.body);
         console.log(newUser);
 
+        return res.redirect("/login");
     } catch (error) {
         console.log(error);
         return res.send(error);
@@ -62,7 +63,7 @@ router.post("/login", async function (req, res) {
         if (!foundUser) return res.redirect("/new-user");
 
         const match = await bcrypt.compare(req.body.password, foundUser.password);
-
+        
         if (!match) return res.send("The supplied username or password is incorrect.");
 
         req.session.currentUser = {
@@ -71,9 +72,9 @@ router.post("/login", async function (req, res) {
             username: foundUser.username,
         };
 
-        console.log(req.session.currentUser);
-        console.log(req.session.currentUser._id)
-        return res.redirect(`/login/:${req.session.currentUser._id}`);
+        console.log(`Current User: ${req.session.currentUser}`);
+        console.log(`Current User unique id: ${req.session.currentUser._id}`);
+        return res.redirect(`/login/${req.session.currentUser._id}`);
 
     } catch (error) {
         console.log(error);
@@ -101,6 +102,18 @@ router.get(`/login/:id`, (req, res, next) => {
         
         res.render('./users/showUser', context);
     });
+});
+
+router.get("/logout", async function (req, res) {
+    try {
+    
+        await req.session.destroy();
+        return res.redirect("/login");
+
+    } catch (error) {
+        console.log(error);
+        return res.send(error);
+    }
 });
 
 module.exports = router;
