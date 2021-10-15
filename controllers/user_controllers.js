@@ -6,11 +6,29 @@ const Book = require("../models/book");
 const Review = require("../models/review");
 const User = require("../models/user");
 
+router.get("/", async function (req, res) {
+    try {
+
+        const books = await Book.find({});
+
+        const context = {
+            books,
+        };
+
+        res.render("home.ejs", context);
+
+    } catch (error) {
+
+        return console.log(error);
+
+    }
+});
+
 /*-------------NEW USER ROUTE-------------*/
+
 router.get("/new-user", function (req, res) {
     res.render('newUser.ejs');
 });
-
 
 router.post("/new-user", async function (req, res) {
     try {

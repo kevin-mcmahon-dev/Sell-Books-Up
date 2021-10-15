@@ -49,9 +49,9 @@ app.use("/", controllers.user);
 
 
 // Routes
-app.get("/", async function (req, res) {
-    res.render("home");
-});
+// app.get("/", async function (req, res) {
+//     res.render("home");
+// });
 
 
 app.get("/*", (req, res) => {
