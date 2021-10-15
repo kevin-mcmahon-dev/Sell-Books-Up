@@ -45,7 +45,7 @@ User is routed to /home/login
 User clicks on user tile relating to their account
 User is routed to /home/login/:id
 
-##Technologies 
+## Technologies 
 JavaScript, EJS, HTML, CSS, Bootstrap, GitHub, Git, Node Express, MongoDB, MongoAtlasDB, Mongoose, Heroku, BBImg. 
 
 ## Approach
