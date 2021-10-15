@@ -1,5 +1,19 @@
-/*---------------this is the book show page css-----------------*/
+/* Display 4 across */
+.ourFeatures{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 28px;
+    margin-left: 80px;
+}
 
+/* Nice up each header */
+.featuredHeader {
+    text-align: center;
+    margin: 25px;
+} 
+
+/*---------------this is the book show page css-----------------*/
 
 .bookCard {
     display: flex;
@@ -63,33 +77,6 @@
 
 }
 
-
-/*----------------this is the end of the book show page css-----*/
-
-/*---------------BOOK EDIT FORM PAGE----------------------------*/
-
-.editBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 200px;
-}
-
-.editBookForm {
-    background-color: rgb(49, 183, 255);
-    border-radius: 20px;
-    padding-left: 100px;
-    padding-top: 50px;
-    padding-right: 100px;
-    padding-bottom: 50px;
-    width: 50%;
-}
-
-.editBookForm h1 {
-    text-align: center;
-    padding-bottom: 20px;
-}
-
 /*----------------END OF BOOK EDIT FORM ----------------------*/
 
 /*-------------------NEW BOOK PAGE ---------------------------*/
@@ -98,7 +85,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 70px;
 }
 
 .editBookForm {
@@ -144,7 +131,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 70px;
 }
 
 .form h1 {
@@ -179,11 +166,14 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 5px solid black;
+    font-size: 32px;
+    margin-left: 15px;
 }
 
 
 .newBookBtn {
     padding: 5px;
+    margin-left: 15px;
 }
 
 
@@ -199,8 +189,9 @@
     margin-left: 20px;
 }
 
-
-
+.userShowReview {
+    margin-left: 15px;
+}
 
 .user-booklist {
     display: flex;
