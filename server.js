@@ -2,6 +2,7 @@
 require("dotenv").config();
 const express = require('express');
 const methodOverride = require('method-override');
+
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 // Global variables
