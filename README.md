@@ -1,4 +1,4 @@
-# project_one
+# SellBooksUP
 
 Kevin, Zach P, and CB Project One
 
